@@ -27,9 +27,9 @@ export default {
 
 <style lang="scss" scoped>
 .base-button {
-  border: 1px solid;
+  border: 1px solid $black;
   border-radius: 0.5rem;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   width: 100%;

@@ -73,7 +73,7 @@ export default {
     position: relative;
 
     &__label {
-      font-size: 14px;
+      font-size: 1rem;
       font-weight: 600;
       text-align: left;
       position: absolute;
@@ -89,7 +89,7 @@ export default {
       width: calc(100% - 2.5rem);
       background: $white;
       border: black solid 1px;
-      border-radius: 0.5px;
+      border-radius: 0.5rem;
       padding: 0 1rem;
       font-size: 1rem;
     }
