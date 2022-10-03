@@ -37,7 +37,8 @@ export default {
   line-height: 100%;
   color: $white;
   cursor: pointer;
-  background: blueviolet;
+  background: $black;
+  padding: 0.625rem 0;
 
   &__disabled {
     background: $disabled;
