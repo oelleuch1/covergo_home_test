@@ -1,5 +1,5 @@
 <template>
-  <div class="base-card">
+  <div v-bind="$attrs" class="base-card">
     <slot />
   </div>
 </template>
@@ -17,6 +17,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 </style>

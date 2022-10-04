@@ -2,13 +2,9 @@
   <div class="base-input">
     <div v-if="label" class="base-input__label"> {{ label }} </div>
     <div class="base-input__block">
-      <div v-if="placeholderUp" class="base-input__block__label"> {{ placeholder }} </div>
       <input class="base-input__block__value"
              v-bind="$attrs"
-             :placeholder="getPlaceholder"
              v-on="getListeners"
-             @blur="placeholderUp = false"
-             @focus="placeholderUp = true"
       />
     </div>
   </div>
@@ -22,26 +18,13 @@ export default {
       type: String,
       default: ''
     },
-    type: {
-      type: String,
-      default: 'text'
-    },
     value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     required: {
       type: Boolean,
       default: false
-    }
-  },
-  data() {
-    return {
-      placeholderUp: false
     }
   },
   computed: {
@@ -50,9 +33,6 @@ export default {
         ...this.$listeners,
         input: ({ target: { value } }) => this.$emit('input', value)
       }
-    },
-    getPlaceholder() {
-      return !this.placeholderUp ? this.placeholder : ''
     }
   }
 }

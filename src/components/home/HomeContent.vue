@@ -21,7 +21,7 @@ export default {
   components: { BaseButton, BaseCard },
   methods: {
     startBuyingHandler() {
-      this.$router.push('/about')
+      this.$router.push('/my-profile')
     }
   }
 }

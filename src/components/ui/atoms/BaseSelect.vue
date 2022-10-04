@@ -43,17 +43,23 @@ export default {
 
 <style lang="scss" scoped>
   .base-select {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
 
     &__title {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.625rem;
+      color: $black;
     }
 
     &__select {
       border-radius: 0.5rem;
-      padding: 0.5rem;
+      padding: 0.625rem;
       font-weight: 500;
+      width: 100%;
     }
 
   }
