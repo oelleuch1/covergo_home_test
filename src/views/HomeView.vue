@@ -5,11 +5,10 @@
 </template>
 
 <script>
-
 import HomeContent from "@/components/home/HomeContent";
 import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: { DefaultLayout, HomeContent },
-}
+};
 </script>

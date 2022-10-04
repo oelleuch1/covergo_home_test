@@ -15,52 +15,51 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: "",
     },
     options: {
       type: Array,
       default() {
-        return []
-      }
+        return [];
+      },
     },
     value: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      selectedOption: null
-    }
+      selectedOption: null,
+    };
   },
   watch: {
     selectedOption(changedValue) {
-      this.$emit('input', changedValue)
-    }
-  }
-}
+      this.$emit("input", changedValue);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .base-select {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100%;
+.base-select {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
 
-    &__title {
-      font-weight: 700;
-      font-size: 1.125rem;
-      margin-bottom: 0.625rem;
-      color: $black;
-    }
-
-    &__select {
-      border-radius: 0.5rem;
-      padding: 0.625rem;
-      font-weight: 500;
-      width: 100%;
-    }
-
+  &__title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.625rem;
+    color: $black;
   }
+
+  &__select {
+    border-radius: 0.5rem;
+    padding: 0.625rem;
+    font-weight: 500;
+    width: 100%;
+  }
+}
 </style>

@@ -9,26 +9,26 @@
 import BaseButton from "@/components/ui/atoms/BaseButtom";
 export default {
   name: "BaseNavigation",
-  components: { BaseButton }
-}
+  components: { BaseButton },
+};
 </script>
 
 <style lang="scss" scoped>
-  .base-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.base-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    &__back {
-      color: $black;
-      background: $white;
-      margin-right: 4rem;
-    }
-
-    &__back, &__next {
-      width: 6rem;
-    }
-
+  &__back {
+    color: $black;
+    background: $white;
+    margin-right: 4rem;
   }
+
+  &__back,
+  &__next {
+    width: 6rem;
+  }
+}
 </style>

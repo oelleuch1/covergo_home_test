@@ -16,31 +16,30 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: "",
     },
     value: {
       type: [String, Number],
-      default: ''
+      default: "",
     },
     required: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     getListeners() {
       return {
         ...this.$listeners,
-        input: ({ target: { value } }) => this.$emit('input', value)
-      }
-    }
-  }
-}
+        input: ({ target: { value } }) => this.$emit("input", value),
+      };
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .base-input {
-
   &__label {
     font-weight: 700;
     font-size: 1.125rem;
@@ -75,5 +74,4 @@ export default {
     }
   }
 }
-
 </style>

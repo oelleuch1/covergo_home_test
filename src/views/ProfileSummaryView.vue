@@ -1,10 +1,10 @@
 <template>
-    <default-layout>
-      <profile-summary />
-    </default-layout>
+  <default-layout>
+    <profile-summary />
+  </default-layout>
 </template>
   
-  <script>
+<script>
 import DefaultLayout from "@/layouts/DefaultLayout";
 import ProfileSummary from "@/components/summary/ProfileSummary.vue";
 

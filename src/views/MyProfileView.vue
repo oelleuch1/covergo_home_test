@@ -11,5 +11,5 @@ import MyProfile from "@/components/profile/MyProfile";
 export default {
   name: "MyProfileView",
   components: { DefaultLayout, MyProfile },
-}
+};
 </script>

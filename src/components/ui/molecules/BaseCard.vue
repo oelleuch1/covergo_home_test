@@ -6,17 +6,17 @@
 
 <script>
 export default {
-  name: "BaseCard"
-}
+  name: "BaseCard",
+};
 </script>
 
 <style lang="scss" scoped>
-  .base-card {
-    background: $grey;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
+.base-card {
+  background: $grey;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 </style>

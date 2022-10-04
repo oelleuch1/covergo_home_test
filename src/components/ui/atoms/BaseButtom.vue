@@ -15,14 +15,14 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
-  }
-}
+      default: false,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
