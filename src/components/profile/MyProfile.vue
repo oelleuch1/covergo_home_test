@@ -16,18 +16,18 @@
     <base-select
         v-model="user.country"
         :options="countries"
-        class="my-profile__select"
+        class="my-profile__select" 
         label="Where do you live ?"
     />
     <base-card class="my-profile__card">
       <base-radio-group
-          v-model="user.premium"
-          :options="getPremiumOptions"
-          name="premuim-options"
+          v-model="user.package"
+          :options="getPackageOptions"
+          name="package-options"
       />
-      <div class="my-profile__card__premium">
+      <div class="my-profile__card__package">
         <span> Your premium is: </span>
-        <span v-if="selectedPremium">{{ selectedPremium }}</span>
+        <span v-if="selectedPackage"> {{ selectedPackage }} </span>
       </div>
       <div class="my-profile__card__navigation">
         <base-navigation @next="navigateToSummaryHandler"/>
@@ -37,13 +37,9 @@
 </template>
 
 <script>
-import {
-  COUNTRIES,
-  COUNTRY_CURRENCY,
-  PREMIUM_OPTIONS,
-  STANDARD_PERCENT,
-} from "@/constants";
-import {convertFromHDK} from "@/helpers";
+import { mapActions } from "vuex";
+import { COUNTRIES, COUNTRY_CURRENCY, PACKAGE_OPTIONS } from "@/constants";
+import { convertFromHDK } from "@/helpers";
 
 import BaseInput from "@/components/ui/atoms/BaseInput";
 import BaseSelect from "@/components/ui/atoms/BaseSelect";
@@ -66,49 +62,59 @@ export default {
         name: null,
         age: null,
         country: null,
-        premium: {},
+        package: {},
       },
       countries: COUNTRIES,
     };
   },
   computed: {
-    getPremiumOptions() {
-      return PREMIUM_OPTIONS.map((premiumOption) => {
+    getPackageOptions() {
+      return PACKAGE_OPTIONS.map((packageOption) => {
         const selectedCurrency = COUNTRY_CURRENCY[this.user.country];
         const convertedValue = convertFromHDK(
-            premiumOption.value,
-            selectedCurrency
+          packageOption.value,
+          selectedCurrency
         );
 
         return this.getOptionLabel(
-            premiumOption,
-            convertedValue,
-            selectedCurrency
+          packageOption,
+          convertedValue,
+          selectedCurrency
         );
       });
     },
-    selectedPremium() {
-      return this.user.country && this.user.premium.value
-          ? this.user.premium.value + COUNTRY_CURRENCY[this.user.country]
-          : "";
+    selectedPackage() {
+      const {
+        country,
+        package: { value },
+      } = this.user;
+      return country && value ? value + COUNTRY_CURRENCY[country] : "";
     },
   },
   methods: {
-    getOptionLabel({id, label, percent}, convertedValue, selectedCurrency) {
-      const isStandard = percent === STANDARD_PERCENT;
+    ...mapActions({
+      setUser: "setUser",
+    }),
+    getOptionLabel(
+      { label, percent, ...options },
+      convertedValue,
+      selectedCurrency
+    ) {
+      const isStandard = label === "Standard";
       const formattedLabel =
-          selectedCurrency && !isStandard
-              ? `${label} (+${convertedValue}, ${selectedCurrency}), ${percent}%`
-              : label;
+        selectedCurrency && !isStandard
+          ? `${label} (+${convertedValue}, ${selectedCurrency}), ${percent}%`
+          : label;
 
       return {
-        id,
+        ...options,
         label: formattedLabel,
         value: convertedValue,
         currency: selectedCurrency,
       };
     },
     navigateToSummaryHandler() {
+      this.setUser(this.user);
       this.$router.push("/summary");
     },
   },
@@ -133,7 +139,7 @@ export default {
     margin: 2rem auto 0 auto;
     padding-top: 1rem;
 
-    &__premium {
+    &__package {
       margin-top: 4rem;
       font-size: 1.25rem;
       font-weight: 600;
@@ -148,21 +154,17 @@ export default {
 
 @media (min-width: $tabletOrMobile + 1) {
   .my-profile {
-
     &__card {
       width: 40rem;
     }
-
   }
 }
 
 @media (max-width: $tabletOrMobile) {
   .my-profile {
-
     &__card {
       width: initial;
     }
-
   }
 }
 </style>

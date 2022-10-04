@@ -6,13 +6,11 @@ const COUNTRY_CURRENCY = {
   Australia: "AUD",
 };
 
-const PREMIUM_OPTIONS = [
-  { id: 1, label: "Standard", value: 500, percent: 100 },
-  { id: 2, label: "Safe", value: 250, percent: 50 },
-  { id: 3, label: "Super Safe", value: 375, percent: 75 },
+const PACKAGE_OPTIONS = [
+  { id: 1, name: 'Standard', label: "Standard", value: 500, percent: 100 },
+  { id: 2, name: "Safe", label: "Safe", value: 250, percent: 50 },
+  { id: 3, name: "Super Safe", label: "Super Safe", value: 375, percent: 75 },
 ];
-
-const STANDARD_PERCENT = 100;
 
 const EXCHANGES_RATE_BASE_HKD = {
   HDK: 1,
@@ -23,7 +21,6 @@ const EXCHANGES_RATE_BASE_HKD = {
 export {
   COUNTRIES,
   COUNTRY_CURRENCY,
-  PREMIUM_OPTIONS,
-  STANDARD_PERCENT,
+  PACKAGE_OPTIONS,
   EXCHANGES_RATE_BASE_HKD,
 };

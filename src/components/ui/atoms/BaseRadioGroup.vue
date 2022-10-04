@@ -24,23 +24,23 @@ export default {
     options: {
       type: Array,
       default() {
-        return []
-      }
+        return [];
+      },
     },
     value: {
-      type: [Object, String, Number]
+      type: [Object, String, Number],
     },
     name: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   methods: {
     isChecked(option) {
-      return option === this.value || option.id === this.value.id
-    }
-  }
-}
+      return option === this.value || option.id === this.value.id;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -50,7 +50,6 @@ export default {
   align-items: flex-start;
 
   &__option {
-
     &:not(:last-child) {
       margin-bottom: 0.5rem;
     }
@@ -64,7 +63,6 @@ export default {
       position: relative;
       top: -0.125rem;
     }
-
   }
 }
 </style>
