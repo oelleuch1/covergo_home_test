@@ -2,7 +2,7 @@
 
 ## Project structure
 ```
-- styles: global variables used in the app like colors/breakpoints
+- assets: global variables used in the app like colors/breakpoints
 - components 
     - ui atomic design library
     - features folder component
