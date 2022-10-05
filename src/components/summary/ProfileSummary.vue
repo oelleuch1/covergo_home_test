@@ -12,16 +12,7 @@
               </div>
             </div>
             <div class="profile-summary__card__submit">
-              <base-buttom 
-                class="profile-summary__card__submit__back" 
-                label="Back" 
-                @click="$router.go(-1)" 
-              />
-              <base-buttom 
-                class="profile-summary__card__submit__buy" 
-                label="Buy" 
-                @click="$router.push('/')" 
-              />
+              <base-navigation next-label="Buy" @next="$router.push('/')" />
             </div>
         </base-card>
     </div>
@@ -29,11 +20,11 @@
 
 <script>
 import { mapGetters } from "vuex";
-import BaseButtom from "../ui/atoms/BaseButtom.vue";
 import BaseCard from "../ui/molecules/BaseCard.vue";
+import BaseNavigation from "@/components/ui/molecules/BaseNavigation";
 export default {
   name: "ProfileSummary",
-  components: { BaseCard, BaseButtom },
+  components: {BaseNavigation, BaseCard },
   computed: {
     ...mapGetters({
       getUser: "getUser",
@@ -65,17 +56,6 @@ export default {
 
     &__submit {
       margin-top: 2rem;
-
-      &__back {
-        color: $black;
-        background: $white;
-        margin-right: 4rem;
-      }
-
-      &__back,
-      &__buy {
-        width: 6rem;
-      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="base-navigation">
-    <base-button class="base-navigation__back" label="Back" @click="$router.go(-1)" />
-    <base-button class="base-navigation__next" label="Next" @click="$emit('next')" />
+    <base-button class="base-navigation__back" :label="backLabel" @click="$router.go(-1)" />
+    <base-button class="base-navigation__next" :label="nextLabel" @click="$emit('next')" />
   </div>
 </template>
 
@@ -10,6 +10,16 @@ import BaseButton from "@/components/ui/atoms/BaseButtom";
 export default {
   name: "BaseNavigation",
   components: { BaseButton },
+  props: {
+    backLabel: {
+      type: String,
+      default: 'Back'
+    },
+    nextLabel: {
+      type: String,
+      default: 'Next'
+    }
+  }
 };
 </script>
 
